@@ -1,0 +1,20 @@
+/* Let article text use the existing responsive Blowfish content container. */
+#single_header,
+#main-content > article > footer,
+#main-content > article > section.prose > .max-w-fit,
+#main-content > article .article-content {
+  width: 100%;
+  max-width: none;
+}
+
+/* Preserve room for the theme's optional table of contents. */
+#main-content > article > section.prose > .max-w-fit {
+  flex: 1;
+}
+
+/* Reveal more of the stadium image and keep its lower portion visible longer. */
+#landing-hero-background {
+  height: clamp(640px, 56.25vw, 1080px);
+  -webkit-mask-image: linear-gradient(to bottom, black 38%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 38%, transparent 100%);
+}

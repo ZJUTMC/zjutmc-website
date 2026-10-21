@@ -1,0 +1,40 @@
+# 中文主导航，按 weight 从小到大排列。
+# 站内页面使用 pageRef，外部网站使用完整 url。
+
+[[main]]
+  identifier = "home"
+  name = "首页"
+  pageRef = "/"
+  weight = 10
+
+[[main]]
+  identifier = "about"
+  name = "社团介绍"
+  pageRef = "/about"
+  weight = 20
+
+[[main]]
+  identifier = "activities"
+  name = "社团活动"
+  pageRef = "/activities"
+  weight = 30
+
+[[main]]
+  identifier = "skin"
+  name = "皮肤站"
+  url = "https://skin.zjutmc.top/"
+  weight = 40
+
+[[main]]
+  identifier = "docs"
+  name = "帮助文档"
+  url = "https://docs.zjutmc.top/"
+  weight = 50
+
+# 页脚入口。
+# [[footer]]
+#   identifier = "github"
+#   name = "GitHub"
+#   pre = "github"
+#   url = "https://github.com/ZJUTMC"
+#   weight = 20

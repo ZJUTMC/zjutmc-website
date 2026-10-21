@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="blue">
+      <stop stop-color="#60a5fa" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#dbeafe" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="yellow">
+      <stop stop-color="#facc15" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#fef9c3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="line" x1="0" x2="1">
+      <stop stop-color="#cbd5e1" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#94a3b8" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#cbd5e1" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="#f9fafb"/>
+  <ellipse cx="240" cy="230" rx="650" ry="560" fill="url(#blue)"/>
+  <ellipse cx="1360" cy="240" rx="630" ry="560" fill="url(#yellow)"/>
+  <ellipse cx="1050" cy="1100" rx="580" ry="460" fill="url(#blue)" opacity=".4"/>
+  <g fill="none" stroke="url(#line)" stroke-width="1">
+    <path d="M-80 750 C300 460 540 880 900 650 S1370 420 1680 570"/>
+    <path d="M-80 820 C300 530 540 950 900 720 S1370 490 1680 640"/>
+  </g>
+</svg>

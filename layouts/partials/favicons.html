@@ -1,0 +1,26 @@
+{{ $icon := resources.Get "img/site/icon.png" }}
+{{ $touchSource := resources.Get "img/site/icon-touch.png" }}
+{{ $icon16 := $icon.Resize "16x16 png" | resources.Fingerprint "sha256" }}
+{{ $icon32 := $icon.Resize "32x32 png" | resources.Fingerprint "sha256" }}
+{{ $touch := $touchSource.Resize "180x180 png" | resources.Fingerprint "sha256" }}
+{{ $android192 := $icon.Resize "192x192 png" | resources.Fingerprint "sha256" }}
+{{ $android512 := $icon | resources.Fingerprint "sha256" }}
+<link rel="icon" type="image/png" sizes="32x32" href="{{ $icon32.RelPermalink }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ $icon16.RelPermalink }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ $touch.RelPermalink }}">
+{{ $manifest := dict
+  "name" site.Title
+  "short_name" site.Title
+  "lang" site.Language.Lang
+  "start_url" ("/" | relURL)
+  "scope" ("/" | relURL)
+  "display" "standalone"
+  "theme_color" "#ffffff"
+  "background_color" "#ffffff"
+  "icons" (slice
+    (dict "src" $android192.RelPermalink "sizes" "192x192" "type" "image/png" "purpose" "any")
+    (dict "src" $android512.RelPermalink "sizes" "512x512" "type" "image/png" "purpose" "any")
+  )
+}}
+{{ $manifestResource := resources.FromString "manifests/zjutmc.webmanifest" ($manifest | jsonify) | resources.Fingerprint "sha256" }}
+<link rel="manifest" href="{{ $manifestResource.RelPermalink }}">

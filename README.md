@@ -1,6 +1,6 @@
 # zjutmc-website
 
-浙江工业大学 ZJUTMC（多媒体 / 媒体工作室）官方网站 —— 基于 [Hugo](https://gohugo.io/) + [Blowfish](https://blowfish.page/) 主题构建的静态站点。
+浙工大 MC 方块社（ZJUTMC）官方网站。我们是浙江工业大学的 Minecraft（我的世界）学生社团，网站基于 [Hugo](https://gohugo.io/) + [Blowfish](https://blowfish.page/) 主题构建。
 
 > 仓库：<https://github.com/ZJUTMC/zjutmc-website> · 主题上游：<https://github.com/nunocoracao/blowfish>
 
@@ -39,6 +39,8 @@ hugo server
 
 默认地址 <http://localhost:1313/>，带热重载：改内容或配置会自动刷新浏览器。
 
+在 VS Code 中打开项目，进入“运行和调试”，选择 `Hugo: Chrome` 或 `Hugo: Edge`，按 `F5`。配置会自动启动 Hugo 并打开浏览器，包含草稿预览。需要本机已安装 Hugo extended 和对应浏览器。停止浏览器调试后，Hugo 服务继续运行；结束预览时，在任务终端按 `Ctrl+C`，或执行“任务: 终止任务”。
+
 生产构建（输出到 `public/`，该目录不进版本库）：
 
 ```shell
@@ -69,26 +71,37 @@ zjutmc-website/
 
 ## 配置要点
 
-**站点还处于初始骨架阶段**：`baseURL` 尚未设置（`hugo.toml` 里仍是注释），`content/` 为空，因此现在构建出来只有主题的框架页。上线前至少要补齐：
+站点使用中文配置和 Blowfish 原生 `landing` 主页，正式域名为 `https://zjutmc.top/`。
 
-1. `config/_default/hugo.toml` → 打开 `baseURL`，改成正式域名（末尾要带 `/`）。
-2. `config/_default/languages.en.toml` → `title` 目前还是主题默认值 `Blowfish`，换成站点名称；补上 `[params.author]` 的名称、头像、简介和社交链接。
-3. `config/_default/menus.en.toml` → 调整导航菜单。
-4. `content/` → 放入首页与文章内容。
+- `config/_default/languages.zh-cn.toml`：站点名称、简介、Logo 和作者信息。
+- `config/_default/menus.zh-cn.toml`：中文导航、皮肤站和帮助文档入口。
+- `config/_default/params.toml`：全站使用 `zjutmc` 蓝黄白灰配色、悬浮导航、共享背景和原生卡片；仅浅色，关闭深色切换入口。
+- `assets/css/schemes/zjutmc.css`：通过 Blowfish 原生颜色变量定义蓝色主色、黄色辅助色和白灰中性色。
+- `content/_index.md`：通过 `heroCaption`、`heroLead`、`heroImage`、`heroButtons` 配置首屏，站点扩展字段 `heroTitleImage` 展示社团 Title 图片，正文使用主题自带的 `feature-grid` 和 `feature` 短代码。
+- `layouts/partials/home/landing.html`：在原生 landing 布局中增加 Title 图片，保留文本标题作为无障碍名称。
+- `assets/css/custom.css`：放宽文章正文的固定宽度，使用站点现有响应式内容容器。
+- `layouts/partials/extend-head.html` 和 `assets/js/light-only.js`：通过主题扩展入口，在页面显示前清除历史深色偏好并固定浅色。
+- `layouts/partials/favicons.html`：使用社团 Logo 生成浏览器及手机图标和网站 manifest，资源 URL 带内容指纹；`static/favicon.ico` 提供传统格式。
+- `i18n/zh-cn.yaml`：将原生“最近文章”区域改为“社团活动”。
+- `assets/img/README.md`：图片分类及社团素材来源；图片按 `site/`、`home/`、`about/`、`activities/<文章名>/` 存放。
+
+主页通过 `mainSections = ["activities"]` 和 `homepage.showRecent` 展示三篇活动，活动列表使用相同的主题卡片。添加活动时，可参考已有页面的 `featureimage`（相对于 `assets/` 的封面路径）、`summary` 和 `description`。设为 `draft = false` 后会纳入正式构建；有明确发布日期时可填写 `date`，历史活动无需补填未经核实的日期。活动列表按 `weight` 排序。
+
+全站背景 `assets/img/site/background.svg` 使用蓝黄柔光与浅灰线条，通过主题原生 `backgroundCanvas` 启用。首页 `heroImage` 共用校园复刻文章的 `img/activities/campus/cover.webp`，响应式展示高度为 `clamp(640px, 56.25vw, 1080px)`，并延后图片底部及滚动渐隐，展示更多建筑画面。优先使用主题设置；站点仅对图片标题、头图展示范围、固定浅色和正文宽度作小范围扩展，不修改主题子模块。
 
 ### 关于语言（`defaultContentLanguage`）
 
-当前是单语言英文：
+当前是单语言简体中文：
 
 ```toml
 # config/_default/hugo.toml
-defaultContentLanguage = "en"
+defaultContentLanguage = "zh-cn"
 ```
 
 - 该值是**顶层字符串**，必须与某个语言 key 对应 —— 在拆分配置模式下即 `config/_default/languages.<key>.toml` 的 `<key>`（符合 RFC 5646，如 `en`、`zh-cn`、`zh-tw`）。
-- 改成中文为默认语言时，**两处必须同时改**：`defaultContentLanguage = "zh-cn"`，并新建 `config/_default/languages.zh-cn.toml`。只改前者会触发 `language "zh-cn" not defined in config`，站点标题、作者卡片、菜单会静默掉回默认值。
+- 修改默认语言时，**两处必须同时改**：`defaultContentLanguage` 与对应的 `languages.<key>.toml`。当前已配置 `languages.zh-cn.toml` 和 `menus.zh-cn.toml`。
 - 中英双语时，主题自带的就绪模板可直接对照：`themes/blowfish/exampleSite/config/_default/languages.zh-cn.toml` 与 `menus.zh-cn.toml`；内容按语言分目录（`content/zh-cn/`、`content/en/`）。
-- 中文站点建议在 `hugo.toml` 里加上 `hasCJKLanguage = true`，否则字数统计与阅读时间会严重失真。
+- 中文语言配置已启用 `hasCJKLanguage = true`，用于中文字数统计和阅读时间估算。
 
 ## 内容创作
 
