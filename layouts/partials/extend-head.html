@@ -1,2 +1,0 @@
-{{ $lightOnly := resources.Get "js/light-only.js" | resources.Minify | resources.Fingerprint (site.Params.fingerprintAlgorithm | default "sha512") }}
-<script src="{{ $lightOnly.RelPermalink }}" integrity="{{ $lightOnly.Data.Integrity }}"></script>

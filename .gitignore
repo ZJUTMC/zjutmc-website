@@ -62,3 +62,6 @@ themes/blowfish/.hugo_build.lock
 
 # --- 本地项目约定 ---
 /AGENTS.md
+
+# --- 本地维护文档 ---
+/docs/

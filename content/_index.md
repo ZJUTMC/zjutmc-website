@@ -1,7 +1,6 @@
 +++
 title = "浙工大 MC 方块社"
 description = "相聚浙工大，在 Minecraft 的方块世界里一起建造、探索与冒险"
-# heroCaption = "ZJUTMC · 浙工大 MC 方块社"
 heroLead = "在方块世界<br>一起建造、探索与冒险"
 heroImage = "img/activities/campus/cover.webp"
 heroTitleImage = "img/home/title.webp"
@@ -11,14 +10,14 @@ heroTitleImage = "img/home/title.webp"
   url = "/about/"
 +++
 
-<!-- {{< feature-grid >}}
-{{< feature icon="heart" title="方块连接你我" url="/about/" label="认识方块社" >}}
-从放下第一块方块开始，在建造、探索与交流中，找到志同道合的朋友。
+{{< feature-grid >}}
+{{< feature icon="qq" title="加入 QQ 群" url="https://qm.qq.com/cgi-bin/qm/qr?k=pwDbnTk31z4CWkph5PF-nre92SJIb244&authKey=dSkRWPHq1nmKvT7/LZeTlj5ty5m/SQieEN8bcZSCZR/X9aCWEy8og2gn3esFuhTR&noverify=0" label="加入群聊" >}}
+**763729280&nbsp;**
 {{< /feature >}}
-{{< feature icon="shirt" title="社团皮肤站" url="https://skin.zjutmc.top/" label="前往皮肤站" >}}
-换上喜欢的皮肤，带着自己的模样，走进属于我们的方块世界。
+{{< feature icon="wechat" title="关注微信公众号" url="https://mp.weixin.qq.com/s/mcPvRACT2KU1fqIQBqINGw" label="查看文章">}}
+**浙工大MC方块社**
 {{< /feature >}}
-{{< feature icon="file-lines" title="帮助文档" url="https://docs.zjutmc.top/" label="查阅帮助文档" >}}
-从开始游戏到探索更多玩法，让社团文档成为你旅途中的指南。
+{{< feature icon="bilibili" title="关注 B 站" url="https://space.bilibili.com/1953305387" label="前往 B 站" >}}
+**浙江工业大学MC方块社**
 {{< /feature >}}
-{{< /feature-grid >}} -->
+{{< /feature-grid >}}

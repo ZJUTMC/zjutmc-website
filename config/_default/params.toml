@@ -1,12 +1,7 @@
-# -- Theme Options --
-# These options control how the theme functions and allow you to
-# customise the display of your website.
-#
-# Refer to the theme docs for more details about each of these parameters.
-# https://blowfish.page/docs/configuration/#theme-parameters
+# Blowfish site options.
+# See README.md for the active site conventions.
 
 colorScheme = "zjutmc"
-# Club browser and mobile icons: layouts/partials/favicons.html.
 defaultAppearance = "light" # valid options: light or dark
 autoSwitchAppearance = false
 
@@ -14,30 +9,21 @@ enableA11y = false
 enableSearch = true
 enableCodeCopy = false
 enableStructuredBreadcrumbs = false
-# enableStyledScrollbar = true # disable to use native scrollbar style (defaults to true)
 
 replyByEmail = false
 
 mainSections = ["activities"]
-# robots = ""
 
 disableImageOptimization = false
 disableImageOptimizationMD = false
 disableTextInHeader = false
-# backgroundImageWidth = 1200
 
 defaultBackgroundImage = "img/site/background.svg"
 backgroundCanvas = true
-# defaultFeaturedImage = "IMAGE.jpg" # used as default for featured images in all articles
-# defaultSocialImage = "/android-chrome-512x512.png" # used as default for social media sharing (Open Graph and Twitter)
+defaultFeaturedImage = "img/site/default-cover.webp"
 hotlinkFeatureImage = false
-# Thumbnail aspect ratio as a number (e.g., "1.5", "1.0", "1.777")
-# thumbnailAspectRatio = "1.5"
-# imagePosition = "50% 50%"
 
 highlightCurrentMenuArea = true
-# smartTOC = true
-# smartTOCHideUnfocusedChildren = true
 
 fingerprintAlgorithm = "sha512" # Valid values are "sha512" (default), "sha384", "sha256"
 
@@ -47,12 +33,8 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
 [languageRedirect]
   enabled = false # Enable client-side language redirects for multilingual sites.
   storageKey = "blowfish_preferred_language" # localStorage key for manual language selections.
-  # fallbackLanguage = "" # Language to use when no browser language matches. Defaults to Hugo's default content language.
   browserRedirectHomeOnly = true # Restrict browser-language redirects to home pages.
   storedLanguageRedirect = true # Redirect to the stored language when a matching translation exists.
-
-[seo]
-# metaDescriptionOrder = ["summary", "description", "site"] # Controls the fallback order for the HTML meta description. Valid values are "summary", "description", and "site".
 
 [header]
   layout = "floating"
@@ -67,8 +49,6 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
 
 [homepage]
   layout = "landing"
-  # layoutSwitcher = false # opt-in interactive preview of the built-in layouts
-  #homepageImage = "IMAGE.jpg" # used in: hero, and card
   showRecent = true
   showRecentItems = 3
   showMoreLink = true
@@ -85,16 +65,14 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showDateOnlyInArticle = false
   showDateUpdated = false
   showAuthor = false
-  # showAuthorBottom = false
-  showHero = false
-  heroStyle = "basic"
+  showHero = true
+  heroStyle = "background"
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
-  # layoutBackgroundBlurStyle = "fade" # valid options: fade, classic. Only used when heroStyle equals background
+  layoutBackgroundBlurStyle = "fade" # Native gradient mask and scroll fade.
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = true
   showDraftLabel = true
   showEdit = false
-  # editURL = "https://github.com/username/repo/"
   editAppendPath = true
   seriesOpened = false
   showHeadingAnchors = true
@@ -103,24 +81,20 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showReadingTime = false
   showReadingProgress = false
   showTableOfContents = false
-  # showRelatedContent = false
-  # relatedContentLimit = 3
   showTaxonomies = false # Enable the display of taxonomies for the related article.
   showCategories = true # These will show if showTaxonomies is true.
   showTags = true # These will show if showTaxonomies is true.
   showCategoriesInSecondaryColor = false # This will change the color of category badges, so the user can better distinguish between the two. Only if showTaxonomies is true.
   showAuthorsBadges = false
   showWordCount = false
-  # sharingLinks = [ "linkedin", "twitter", "bluesky", "mastodon", "reddit", "pinterest", "facebook", "email", "whatsapp", "telegram", "line"]
   showZenMode = false
-  # externalLinkForceNewTab = false # disable to allow external links in the same tab (defaults to true)
 
 [list]
-  showHero = false
+  showHero = true
   featureImageHover = true
-  # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
+  heroStyle = "background"
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
-  # layoutBackgroundBlurStyle = "fade" # valid options: fade, classic. Only used when heroStyle equals background
+  layoutBackgroundBlurStyle = "fade"
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
   showBreadcrumbs = true
   showSummary = true
@@ -139,79 +113,27 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
 
 [taxonomy]
   showTermCount = true
-  showHero = false
-  # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
+  showHero = true
+  heroStyle = "background"
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
-  # layoutBackgroundBlurStyle = "fade" # valid options: fade, classic. Only used when heroStyle equals background
+  layoutBackgroundBlurStyle = "fade"
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
-  showBreadcrumbs = false
+  showBreadcrumbs = true
   showViews = false
   showLikes = false
   showTableOfContents = false
   cardView = false
 
 [term]
-  showHero = false
-  # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
+  showHero = true
+  heroStyle = "background"
   layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
-  # layoutBackgroundBlurStyle = "fade" # valid options: fade, classic. Only used when heroStyle equals background
+  layoutBackgroundBlurStyle = "fade"
   layoutBackgroundHeaderSpace = true # only used when heroStyle equals background
-  showBreadcrumbs = false
+  showBreadcrumbs = true
   showViews = false
   showLikes = false
   showTableOfContents = true
   groupByYear = false
   cardView = false
   cardViewScreenWidth = false
-
-[firebase]
-  # apiKey = "XXXXXX"
-  # authDomain = "XXXXXX"
-  # projectId = "XXXXXX"
-  # storageBucket = "XXXXXX"
-  # messagingSenderId = "XXXXXX"
-  # appId = "XXXXXX"
-  # measurementId = "XXXXXX"
-
-[fathomAnalytics]
-  # site = "ABC12345"
-  # domain = "llama.yoursite.com"
-
-[umamiAnalytics]
-  # websiteid = "ABC12345"
-  # domain = "llama.yoursite.com"
-  # dataDomains = "yoursite.com,yoursite2.com"
-  # scriptName = ""
-  # enableTrackEvent = true
-
-[selineAnalytics]
-  # token = "XXXXXX"
-  # enableTrackEvent = true
-
-[buymeacoffee]
-  # identifier = ""
-  # globalWidget = true
-  # globalWidgetMessage = "Hello"
-  # globalWidgetColor = "#FFDD00"
-  # globalWidgetPosition = "right"
-
-[kofi]
-  # identifier = ""
-  # globalWidget = true
-  # globalWidgetText = "Support me"
-  # globalWidgetBackgroundColor = "#00B9FE"
-  # globalWidgetTextColor = "#FFFFFF"
-
-[verification]
-  # google = ""
-  # bing = ""
-  # pinterest = ""
-  # yandex = ""
-  # fediverse = ""
-
-[rssnext]
-  # feedId = ""
-  # userId = ""
-
-[advertisement]
-  # adsense = ""

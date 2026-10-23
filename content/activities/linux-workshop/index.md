@@ -1,20 +1,40 @@
 +++
 title = "Linux 上的 MC 服务器"
-description = "从玩家到开服者，一起探索 Linux 与 Minecraft 服务器背后的技术。"
+description = "平时输入地址进服，这次换个位置，和伙伴一起看看 MC 服务器是怎么跑起来的。"
 weight = 30
 draft = false
 featureimage = "img/activities/linux-workshop/cover.webp"
-summary = "从玩家到开服者，一起探索 Linux 与 Minecraft 服务器背后的技术。"
+summary = "输入地址就能进服，那地址背后有什么？从终端到启动脚本，一起试着开个服。"
 +++
 
-方块世界之外，还有值得探索的技术世界。
+平时玩 MC，输入地址、点下连接，就能进入朋友的世界。那这个世界是谁启动的，服务器里又在忙些什么？
 
-“Linux 上的 MC 服务器”是社团存档中的精品课程主题。通过 Minecraft 服务器这个熟悉的入口，一起接触 Linux 与服务器相关知识。
+“Linux 上的 MC 服务器”是我们与 ZJUTLUG 合作开展的课程。带着想开服的好奇，从终端开始，试着让一个 Minecraft 服务端真正跑起来。
 
-{{< figure src="img/activities/linux-workshop/cover.webp" alt="Linux 上的 MC 服务器课程线下分享现场" caption="课程分享现场 · 社团活动存档" >}}
+{{< figure src="img/activities/linux-workshop/cover.webp" alt="Linux 上的 MC 服务器课程线下分享现场" caption="换个视角玩 MC：这次先看终端和配置文件。" >}}
 
-## 把好奇变成动手的起点
+## 先和终端混个脸熟
 
-不只进入一个世界，也试着理解它如何运行。课程相关的帮助内容，可以从[社团帮助文档](https://docs.zjutmc.top/)开始查阅。
+刚打开终端，满屏文字可能有点陌生。课程从 Linux 的基础认识讲起，也带大家在 WSL 里动手，练习文件和目录操作，准备 Java 环境。
 
-{{< figure src="img/activities/linux-workshop/poster.webp" alt="Linux 上的 MC 服务器精品课程原宣传海报" caption="社团存档海报，仅作课程展示；图中时间与联系方式为历史信息。" >}}
+当命令开始对应具体的事情——找到文件、切换目录、启动程序——那些原本看起来很抽象的词，也就慢慢有了着落。
+
+## 开服这件事，拆开来做
+
+围绕 MC 开服，我们接触了这些内容：
+
+1. **把环境准备好**：认识 Linux 和发行版，使用终端，管理文件，检查 Java。
+2. **弄清谁在运行、怎么连接**：了解用户与权限，尝试 SSH，认识 IP、端口与防火墙。
+3. **让服务端跑起来**：配置服务端和启动脚本，测试连接，再接触管理面板、插件和存档备份。
+
+原来，玩家在客户端点下“加入服务器”之前，背后还有这么多事要准备。自己跟着做一遍，也更容易理解每一步为什么需要它。
+
+## 报错先别关，线索可能就在里面
+
+Java 版本不合适、配置文件写错、下载速度太慢，课堂上也遇到了这些很实际的问题。
+
+这时候，先看看日志，再对照环境和操作步骤，一点点缩小范围。找到原因、重新启动，再成功连进自己的服务端，前面折腾的那些步骤就都有了回报。
+
+这里聊的是课程经历。真要自己部署，记得对照所用游戏版本与服务端的文档。想继续研究，可以从[帮助文档](/docs/)和[原帮助文档站](https://docs.zjutmc.top/)找起；客户端还没装明白，也可以先看看[从零装 MC](/activities/minecraft-setup/)的入门帮助。
+
+{{< figure src="img/activities/linux-workshop/poster.webp" alt="Linux 上的 MC 服务器精品课程原宣传海报" caption="当时的课程海报，时间与联系方式均为历史信息。" >}}

@@ -39,7 +39,7 @@ hugo server
 
 默认地址 <http://localhost:1313/>，带热重载：改内容或配置会自动刷新浏览器。
 
-在 VS Code 中打开项目，进入“运行和调试”，选择 `Hugo: Chrome` 或 `Hugo: Edge`，按 `F5`。配置会自动启动 Hugo 并打开浏览器，包含草稿预览。需要本机已安装 Hugo extended 和对应浏览器。停止浏览器调试后，Hugo 服务继续运行；结束预览时，在任务终端按 `Ctrl+C`，或执行“任务: 终止任务”。
+结束预览时，在运行 Hugo 的终端按 `Ctrl+C`。
 
 生产构建（输出到 `public/`，该目录不进版本库）：
 
@@ -54,14 +54,12 @@ zjutmc-website/
 ├── config/_default/          # 站点全部配置（Hugo 拆分配置模式）
 │   ├── hugo.toml             #   核心设置：主题、baseURL、默认语言、taxonomies…
 │   ├── params.toml           #   主题外观与行为：配色、首页布局、文章/列表页开关…
-│   ├── languages.en.toml     #   语言级设置：站点标题、作者卡片、社交链接
-│   ├── menus.en.toml         #   导航菜单
-│   ├── markup.toml           #   Goldmark 渲染设置（unsafe = true 必须保留）
-│   └── module.toml           #   Hugo Module 挂载（当前用 submodule，此文件为空）
+│   ├── languages.zh-cn.toml  #   语言级设置：站点标题、作者卡片、社交链接
+│   ├── menus.zh-cn.toml      #   导航菜单
+│   └── markup.toml           #   Goldmark 渲染设置（unsafe = true 必须保留）
 ├── content/                  # 站点内容（Markdown）
 ├── assets/                   # 需要 Hugo Pipes 处理的资源（自定义 CSS 等）
 ├── layouts/                  # 站点级模板覆盖，优先级高于主题同名文件
-├── data/                     # 结构化数据（如 data/authors/*.json）
 ├── i18n/                     # 站点级翻译表覆盖
 ├── static/                   # 原样拷贝的文件（图片、favicon、robots 等）
 ├── archetypes/default.md     # `hugo new` 的内容模板
@@ -80,10 +78,10 @@ zjutmc-website/
 - `content/_index.md`：通过 `heroCaption`、`heroLead`、`heroImage`、`heroButtons` 配置首屏，站点扩展字段 `heroTitleImage` 展示社团 Title 图片，正文使用主题自带的 `feature-grid` 和 `feature` 短代码。
 - `layouts/partials/home/landing.html`：在原生 landing 布局中增加 Title 图片，保留文本标题作为无障碍名称。
 - `assets/css/custom.css`：放宽文章正文的固定宽度，使用站点现有响应式内容容器。
-- `layouts/partials/extend-head.html` 和 `assets/js/light-only.js`：通过主题扩展入口，在页面显示前清除历史深色偏好并固定浅色。
+- `assets/js/appearance.js`：覆盖主题的外观控制脚本，固定浅色，不监听系统深色切换；沿用主题原生加载与内容指纹机制。
 - `layouts/partials/favicons.html`：使用社团 Logo 生成浏览器及手机图标和网站 manifest，资源 URL 带内容指纹；`static/favicon.ico` 提供传统格式。
 - `i18n/zh-cn.yaml`：将原生“最近文章”区域改为“社团活动”。
-- `assets/img/README.md`：图片分类及社团素材来源；图片按 `site/`、`home/`、`about/`、`activities/<文章名>/` 存放。
+- `assets/img/`：站点图片按 `site/`、`home/`、`about/`、`activities/<文章名>/` 存放。
 
 主页通过 `mainSections = ["activities"]` 和 `homepage.showRecent` 展示三篇活动，活动列表使用相同的主题卡片。添加活动时，可参考已有页面的 `featureimage`（相对于 `assets/` 的封面路径）、`summary` 和 `description`。设为 `draft = false` 后会纳入正式构建；有明确发布日期时可填写 `date`，历史活动无需补填未经核实的日期。活动列表按 `weight` 排序。
 
@@ -105,9 +103,11 @@ defaultContentLanguage = "zh-cn"
 
 ## 内容创作
 
+活动文章放在 `content/activities/<文章名>/index.md`，可参考现有文章的 Front matter 和正文。帮助文章放在 `content/docs/<文章名>/index.md`。
+
 ```shell
-hugo new content posts/my-first-post.md          # 单文件
-hugo new content posts/my-first-post/index.md    # 页面包（正文里要引用图片时用这种）
+hugo new content activities/my-activity/index.md
+hugo new content docs/my-guide/index.md
 ```
 
 新建内容使用 `archetypes/default.md` 模板，front matter 为 TOML（`+++`），默认 `draft = true`。要连草稿一起预览：

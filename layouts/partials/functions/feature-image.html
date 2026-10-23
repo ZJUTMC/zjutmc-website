@@ -1,0 +1,20 @@
+{{/* Keep the theme's translated feature image lookup, then share the same
+  bundle/default fallback between inner-page heroes and listing thumbnails. */}}
+{{ $featureImage := .Params.featureimage }}
+{{ if not $featureImage }}
+  {{ range .Translations }}
+    {{ with .Params.featureimage }}{{ $featureImage = . }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ if and (not $featureImage) (not .IsHome) }}
+  {{ $images := .Resources.ByType "image" }}
+  {{ range slice "*feature*" "*cover*" "*thumbnail*" "*background*" }}
+    {{ if not $featureImage }}
+      {{ with $images.GetMatch . }}{{ $featureImage = .Name }}{{ end }}
+    {{ end }}
+  {{ end }}
+  {{ if not $featureImage }}
+    {{ $featureImage = site.Params.defaultFeaturedImage }}
+  {{ end }}
+{{ end }}
+{{ return $featureImage }}

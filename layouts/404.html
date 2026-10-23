@@ -1,0 +1,22 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "single" }}
+  {{ partial "hero/background.html" . }}
+  <article>
+    <header id="single_header" class="mt-5 max-w-prose">
+      <p class="mb-2 text-base text-neutral-500 dark:text-neutral-400">
+        {{ i18n "error.404_error" | emojify }}
+      </p>
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        {{ i18n "error.404_title" | emojify }}
+      </h1>
+    </header>
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      <div class="min-w-0 min-h-0 max-w-fit">
+        <div class="article-content max-w-prose mb-20">
+          <p>{{ i18n "error.404_description" | emojify }}</p>
+          {{ partial "cta-button.html" (dict "url" site.Home.RelPermalink "label" (i18n "error.404_home")) }}
+        </div>
+      </div>
+    </section>
+  </article>
+{{ end }}

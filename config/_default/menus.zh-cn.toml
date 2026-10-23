@@ -20,15 +20,15 @@
   weight = 30
 
 [[main]]
-  identifier = "skin"
-  name = "皮肤站"
-  url = "https://skin.zjutmc.top/"
+  identifier = "docs"
+  name = "帮助文档"
+  pageRef = "/docs"
   weight = 40
 
 [[main]]
-  identifier = "docs"
-  name = "帮助文档"
-  url = "https://docs.zjutmc.top/"
+  identifier = "skin"
+  name = "皮肤站"
+  url = "https://skin.zjutmc.top/"
   weight = 50
 
 # 页脚入口。
