@@ -12,7 +12,6 @@ heroTitleImage = "img/home/title.webp"
 [[heroButtons]]
   label = "帮助文档"
   url = "/docs/"
-  icon = "book-open"
 +++
 
 {{< feature-grid >}}

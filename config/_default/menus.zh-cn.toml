@@ -26,6 +26,12 @@
   weight = 40
 
 [[main]]
+  identifier = "contact"
+  name = "联系我们"
+  pageRef = "/contact"
+  weight = 45
+
+[[main]]
   identifier = "skin"
   name = "皮肤站"
   url = "https://skin.zjutmc.top/"
