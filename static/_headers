@@ -1,0 +1,5 @@
+# Supported by Cloudflare Pages / Netlify. Other hosts need equivalent rules.
+/site-version.json
+  Cache-Control: no-store, max-age=0
+  CDN-Cache-Control: no-store
+  Cloudflare-CDN-Cache-Control: no-store

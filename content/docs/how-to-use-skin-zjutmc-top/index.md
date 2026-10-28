@@ -1,6 +1,6 @@
 +++
 title = "浙江工业大学MC方块社皮肤站使用指南"
-description = "了解浙工大 MC 方块社皮肤站的注册、角色管理、皮肤设置等使用方法。"
+description = "了解浙江工业大学MC方块社皮肤站的注册、角色管理、皮肤设置等使用方法。"
 summary = "从注册账号、创建角色到设置皮肤；LittleSkin 用户可直接阅读快速开始部分。"
 draft = false
 weight = 10

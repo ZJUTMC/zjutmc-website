@@ -4,7 +4,7 @@ locale = "zh-CN"
 label = "简体中文"
 weight = 2
 
-title = "浙工大MC方块社"
+title = "浙江工业大学MC方块社"
 hasCJKLanguage = true
 
 [params]
@@ -12,13 +12,13 @@ hasCJKLanguage = true
   isoCode = "zh-cn"
   rtl = false
   dateFormat = "2006年1月2日"
-  description = "浙工大 MC 方块社（ZJUTMC）官方网站。我们是浙江工业大学的我的世界（Minecraft）学生社团，在这里分享社团动态、活动与方块世界中的创作。"
+  description = "浙江工业大学MC方块社（ZJUTMC）官方网站。我们是浙江工业大学我的世界（Minecraft）学生社团，在这里分享社团动态、活动与方块世界中的创作。"
   # logo 和作者 image 的路径相对于 assets 目录；准备好图片后再启用。
   logo = "img/site/logo.png"
   # secondaryLogo = "img/logo-dark.png"
 
 [params.author]
-  name = "浙工大 MC 方块社"
+  name = "浙江工业大学MC方块社"
   headline = "浙江工业大学我的世界（Minecraft）学生社团"
   bio = "相聚方块世界，分享创作与冒险。"
   # image = "img/logo.png"

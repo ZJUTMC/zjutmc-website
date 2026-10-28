@@ -1,11 +1,17 @@
 +++
 title = "帮助文档"
-description = "浙工大 MC 方块社的使用指南与常见问题。"
+description = "浙江工业大学MC方块社的使用指南与常见问题。"
 draft = false
 orderByWeight = true
+showHero = true
+layoutBackgroundHeaderSpace = false
+featureimage = "img/site/default-cover.webp"
+heroStyle = "background"
+layoutBackgroundBlur = true
+layoutBackgroundBlurStyle = "fade"
 +++
 
-这里汇集浙工大 MC 方块社的使用指南与常见问题，帮助你了解和使用社团相关服务。
+这里汇集浙江工业大学MC方块社的使用指南与常见问题，帮助你了解和使用社团相关服务。
 
 本站教程陆续整理中~
 

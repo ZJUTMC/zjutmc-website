@@ -122,3 +122,9 @@ hugo server -D
 - [ ] `draft` 已在准备发布时改成 `false`。
 - [ ] GitHub Desktop 中只选择本次相关文件提交。
 - [ ] 已推送、按要求合并，并确认线上部署完成。
+
+## 六、更多功能
+
+### 设置文字遮罩
+
+这句话正常显示，<span class="mc-spoiler" tabindex="0">这句话默认被浅蓝色遮住</span>，这里继续正常显示。

@@ -1,6 +1,6 @@
 # zjutmc-website
 
-浙工大 MC 方块社（ZJUTMC）官方网站。我们是浙江工业大学的 Minecraft（我的世界）学生社团，网站基于 [Hugo](https://gohugo.io/) + [Blowfish](https://blowfish.page/) 主题构建。
+浙江工业大学MC方块社（ZJUTMC）官方网站。我们是浙江工业大学的 Minecraft（我的世界）学生社团，网站基于 [Hugo](https://gohugo.io/) + [Blowfish](https://blowfish.page/) 主题构建。
 
 > 仓库：<https://github.com/ZJUTMC/zjutmc-website> · 主题上游：<https://github.com/nunocoracao/blowfish>
 
@@ -21,15 +21,18 @@
 ### 1. 克隆（含主题子模块）
 
 ```shell
-git clone --recurse-submodules https://github.com/ZJUTMC/zjutmc-website.git
+git clone --recurse-submodules --shallow-submodules https://github.com/ZJUTMC/zjutmc-website.git
 cd zjutmc-website
 ```
 
 已经克隆过、但 `themes/blowfish` 是空目录的话：
 
 ```shell
-git submodule update --init --recursive
+git submodule sync --recursive
+git submodule update --init --recursive --depth 1 themes/blowfish
 ```
+
+`.gitmodules` 已设置主题子模块 `shallow = true`，新初始化时默认建议使用浅克隆；显式指定 `--depth 1` 可以进一步避免下载完整主题历史。网站主仓库不做浅克隆，以保留社团自己的分支与提交历史。普通初始化始终使用主仓库锁定的主题提交，不要加 `--remote`，否则会改为追踪上游最新版本。浅克隆仍需下载当前主题文件；锁定提交不在上游最新位置时，Git 可能额外抓取该提交，并不保证主题对象库只有一个提交，也不能解决网络、代理或权限故障。
 
 ### 2. 启动本地预览
 
@@ -143,6 +146,24 @@ git add themes/blowfish && git commit -m "⬆️ chore: bump blowfish"
 站点是纯静态产物，`hugo --gc --minify` 产出的 `public/` 目录可直接托管（GitHub Pages、Netlify、Vercel、Cloudflare Pages 等）。
 
 各平台的构建参数、缓存与重定向配置参考主题文档：<https://blowfish.page/docs/hosting-deployment/>
+
+### 部署时减少主题历史下载
+
+当前仓库未包含部署工作流或托管平台专用构建配置，实际平台设置需在托管控制台确认；不要仅为减少下载量而改变部署平台或分支。
+
+若平台允许在构建命令中初始化子模块，可使用：
+
+```shell
+git submodule sync --recursive
+git submodule update --init --recursive --depth 1 themes/blowfish
+hugo --gc --minify
+```
+
+若平台只接受一行构建命令，将以上三条用 `&&` 连接。若平台在执行构建命令之前已经自动下载了完整子模块历史，以上命令不会追回已产生的流量，应优先使用平台的浅克隆选项；只有确认可以通过构建命令初始化主题时，才考虑关闭平台预先递归克隆子模块的行为。
+
+若将来使用 GitHub Actions，可让 `actions/checkout` 不预先递归获取子模块，再单独执行上述带 `--depth 1` 的初始化命令。不要将 `fetch-depth: 0` 当作节流设置，它表示获取完整历史。
+
+浅克隆不会删除已有的完整 Git 对象库；这里不执行清理、重写历史或强制推送。主仓库记录的 `themes/blowfish` 提交仍决定构建使用的版本，部署时不要使用 `git submodule update --remote`。
 
 ## 文档索引
 

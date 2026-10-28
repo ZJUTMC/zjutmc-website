@@ -1,11 +1,16 @@
 +++
 title = "社团介绍"
-description = "浙工大 MC 方块社（ZJUTMC）"
+description = "浙江工业大学MC方块社（ZJUTMC）"
 draft = false
 featureimage = "img/about/together.webp"
+showHero = true
+heroStyle = "background"
+layoutBackgroundHeaderSpace = false
+layoutBackgroundBlur = true
+layoutBackgroundBlurStyle = "fade"
 +++
 
-我们是**浙江工业大学 MC 方块社**（ZJUTMC），在2022年4月由一群热爱**我的世界**（Minecraft）的工大学子成立。
+我们是**浙江工业大学MC方块社**（ZJUTMC），在2022年4月由一群热爱**我的世界**（Minecraft）的工大学子成立。
 
 作为一个学术科技类社团，我们挂靠在浙江工业大学计算机科学与技术学院（软件学院、人工智能学院）下，邀请前沿交叉科学研究院副院长姚信威作为社团指导老师。
 
@@ -51,4 +56,4 @@ featureimage = "img/about/together.webp"
 
 按照社团章程，正式社团成员面向**具有学籍的浙江工业大学在读学生**。希望加入的同学，可以关注**百团大战招新**以及我们的账号和群聊。
 
-欢迎来到浙工大 MC 方块社。从一次联机、一场活动或一块方块开始，和我们一起创造属于自己的故事。
+欢迎来到浙江工业大学MC方块社。从一次联机、一场活动或一块方块开始，和我们一起创造属于自己的故事。

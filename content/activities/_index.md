@@ -1,8 +1,14 @@
 +++
 title = "社团活动"
-description = "浙工大 MC 方块社的活动通知与回顾。"
+description = "浙江工业大学MC方块社的活动通知与回顾。"
 draft = false
 orderByWeight = true
+featureimage = "img/activities/campus/cover.webp"
+showHero = true
+heroStyle = "background"
+layoutBackgroundHeaderSpace = false
+layoutBackgroundBlur = true
+layoutBackgroundBlurStyle = "fade"
 +++
 
 下课之后，来方块世界逛逛？可以盖房、修机器，和朋友换张地图开一局，也能在线下摊位前坐坐，聊聊 MC 和校园里的那些事。

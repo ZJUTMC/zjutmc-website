@@ -1,0 +1,5 @@
+{{- $version := partialCached "functions/build-version.html" . -}}
+{{- $manifest := resources.FromString "site-version.json" (dict "version" $version | jsonify) -}}
+{{- $checker := resources.Get "js/site-update.js" | resources.Minify | resources.Fingerprint "sha256" -}}
+<script defer src="{{ $checker.RelPermalink }}" integrity="{{ $checker.Data.Integrity }}"
+  data-site-version="{{ $version }}" data-version-url="{{ $manifest.RelPermalink }}"></script>

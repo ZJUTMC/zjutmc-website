@@ -58,7 +58,14 @@
       {{ with .Params.heroButtons }}
         <div class="landing-rise landing-rise-3 mt-9 flex flex-wrap items-center justify-center gap-4">
           {{ range . }}
-            {{ partial "cta-button.html" (dict "url" .url "label" .label "style" .style "github" .github) }}
+            {{ if .icon }}
+              <a href="{{ .url | relURL }}" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-600 px-6 py-3 text-lg font-semibold text-white no-underline shadow-lg transition-colors hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-600">
+                <span>{{ .label }}</span>
+                <span class="inline-block h-5 w-5 shrink-0" aria-hidden="true">{{ partial "icon.html" .icon }}</span>
+              </a>
+            {{ else }}
+              {{ partial "cta-button.html" (dict "url" .url "label" .label "style" .style "github" .github) }}
+            {{ end }}
           {{ end }}
         </div>
       {{ end }}
