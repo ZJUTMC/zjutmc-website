@@ -29,6 +29,7 @@ functions/node_modules/
 .env.*
 !.env.example
 .credentials.yaml
+.webui_secret_key
 *.pem
 
 # --- 编辑器与 IDE ---
