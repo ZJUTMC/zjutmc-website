@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="240" viewBox="0 0 960 240" role="img" aria-labelledby="title desc">
+  <title id="title">教程编写流程</title>
+  <desc id="desc">编写正文，然后放入图片，最后检查后发布。</desc>
+  <rect width="960" height="240" rx="20" fill="#f1f5f9"/>
+  <g fill="#ffffff" stroke="#2563eb" stroke-width="3">
+    <rect x="40" y="65" width="240" height="110" rx="14"/>
+    <rect x="360" y="65" width="240" height="110" rx="14"/>
+    <rect x="680" y="65" width="240" height="110" rx="14"/>
+  </g>
+  <g fill="#1e3a8a" font-family="Microsoft YaHei, sans-serif" font-size="28" text-anchor="middle">
+    <text x="160" y="132">1. 编写正文</text>
+    <text x="480" y="132">2. 放入图片</text>
+    <text x="800" y="132">3. 检查后发布</text>
+  </g>
+  <g stroke="#2563eb" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M300 120 H340 M328 108 L340 120 L328 132"/>
+    <path d="M620 120 H660 M648 108 L660 120 L648 132"/>
+  </g>
+</svg>
