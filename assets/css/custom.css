@@ -52,6 +52,65 @@ svg.bilibili-icon {
   height: 1.2em;
 }
 
+/* Back to top: keep the theme's positioning and visibility behavior. */
+#scroll-to-top > a {
+  box-sizing: border-box;
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background-color: #f1f5f9;
+  color: #334155;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgb(15 23 42 / 8%);
+  transition: background-color 160ms ease, color 160ms ease,
+    box-shadow 160ms ease, transform 160ms ease;
+}
+
+#scroll-to-top > a:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+  box-shadow: 0 4px 12px rgb(15 23 42 / 12%);
+  transform: translateY(-2px);
+}
+
+#scroll-to-top > a:active {
+  transform: translateY(0) scale(0.96);
+}
+
+#scroll-to-top > a:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 3px;
+}
+
+.dark #scroll-to-top > a {
+  border-color: #475569;
+  background-color: #334155;
+  color: #f1f5f9;
+}
+
+.dark #scroll-to-top > a:hover {
+  background-color: #475569;
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #scroll-to-top > a {
+    transition: none;
+  }
+
+  #scroll-to-top > a:hover,
+  #scroll-to-top > a:active {
+    transform: none;
+  }
+}
+
 /* Blue spoiler: hover or focus to reveal; keep the same palette in dark mode. */
 .mc-spoiler {
   --spoiler-cover: #93c5fd;
